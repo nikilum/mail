@@ -1,0 +1,109 @@
+body {
+    margin: 0 auto;
+    background: #111;
+}
+.header {
+    background: #373737;
+    height: 60px;
+}
+.header-heading{
+    padding-top: 9px;
+    padding-left: 80px;
+}
+.header-heading-pic-container {
+    float: left;
+}
+.header-heading-text-container {
+    float: left;
+    color: white;
+    font-weight: bolder;
+    padding-left: 15px;
+    font-size: 35px;
+    font-family: "Century Gothic";
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+}
+.header-nav {
+    display: flex;
+    padding-left: 88.7px;
+    margin-top: 8.7px;
+}
+.header-nav-element {
+    background: #4f7faf;
+    margin: 5px;
+    color: #f4f4f4;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    padding: 10px;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+}
+.header-nav-element:hover {
+    background: #6f9fcf;
+    cursor: pointer;
+}
+.header-nav-element:active {
+    background: #2a6db7;
+}
+
+.sidebar {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: #1c1c1c;
+}
+
+.sidebar-head {
+    display: flex;
+    width: 100%;
+    height: 200px;
+}
+
+.sidebar-write-button {
+    width: 180px;
+    height: 40px;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    color: #f4f4f4;
+    background: #4f7faf;
+    box-shadow: 2px 2px 10px #111111;
+    font-size: 15px;
+    font-weight: bolder;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    
+}
+.sidebar-write-button:hover {
+    background: #6f9fcf;
+    cursor: pointer;
+
+}
+.sidebar-write-button:active {
+    background: #2a6db7;
+}
+.sidebar-write-button:focus {
+    outline: none;
+}
+.sidebar-write-button-img-container {
+    float: left;
+    padding-top: 1px;
+}
+.sidebar-write-button-text-container {
+    float: left;
+    padding-left: 8px;
+    padding-top: 4px;
+}
+
