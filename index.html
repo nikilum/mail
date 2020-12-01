@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Mail</title>
+    <script src="SweetAlert2.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
@@ -30,7 +31,7 @@
 </div>
 <div class="sidebar">
     <div class="sidebar-head">
-        <button class="sidebar-write-button">
+        <button class="sidebar-write-button" onclick="showEmailSendWindow()">
             <div class="sidebar-write-button-img-container">
                 <img class="sidebar-write-button-img" src="pics/mail_icon.png" height="22" width="22">
             </div>
@@ -39,16 +40,227 @@
             </div>
         </button>
     </div>
-    <div class="sidebar-folders-navigation">
+    <div class="sidebar-folders-navigation-container">
+        <div class="sidebar-folders-navigation">
+            <ul type="none" class="sidebar-folders-navigation-list">
+                <li>Входящие</li>
+                <li>Отправленные</li>
+                <li>Черновики</li>
+                <li>Корзина</li>
+                <li>Папка 1</li>
+                <li>Папка 2</li>
+                <li>Папка 3</li>
+                <li>Папка 4</li>
+                <li>Папка 5</li>
+            </ul>
+        </div>
+    </div>
+    <div class="sidebar-folders-navigation-new-folder-container">
+        <button class="sidebar-folders-navigation-new-folder">
+                <span class="sidebar-folders-navigation-new-folder-text">Создать папку</span>
+        </button>
+    </div>
+</div>
+<div class="mailbox-container">
+    <div class="mailbox">
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Я гей</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
+        <div class="mailbox-element">
+            <a href="index.html" class="mailbox-element-ref">
+                <div class="mailbox-inside-element">
+                    <input type="checkbox" class="mailbox-inside-element-checkbox">
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-from">from: writer</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <hr class="vr">
+                    <span class="mailbox-inside-element-time">01.12.2020</span>
+                </div>
+            </a>
+        </div>
 
     </div>
 </div>
-<div class="mailbox">
-    <div class="mailbox-mail-list">
-        <div class="mailbox-mail-list-element">
-
-        </div>
-    </div>
 </div>
 </body>
 </html>
