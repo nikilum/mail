@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Mail</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -43,209 +44,33 @@
     </div>
     <div class="sidebar-folders-navigation-container">
         <div class="sidebar-folders-navigation">
-            <ul type="none" class="sidebar-folders-navigation-list">
+            <ul type="none" class="sidebar-folders-navigation-list" id="foldersList">
                 <li>Входящие</li>
                 <li>Отправленные</li>
                 <li>Черновики</li>
                 <li>Корзина</li>
-                <li>Папка 1</li>
-                <li>Папка 2</li>
-                <li>Папка 3</li>
-                <li>Папка 4</li>
-                <li>Папка 5</li>
             </ul>
         </div>
     </div>
     <div class="sidebar-folders-navigation-new-folder-container">
-        <button class="sidebar-folders-navigation-new-folder">
+        <button class="sidebar-folders-navigation-new-folder" onclick="createNewFolder();">
                 <span class="sidebar-folders-navigation-new-folder-text">Создать папку</span>
+        </button>
+    </div>
+    <div class="sidebar-folders-navigation-new-folder-name-container">
+        <input class="sidebar-folders-navigation-new-folder-name" placeholder="Введите название папки">
+    </div>
+    <div class="sidebar-folders-navigation-delete-folder-container">
+        <button class="sidebar-folders-navigation-delete-folder" onclick="deleteFolder();">
+            <span class="sidebar-folders-navigation-delete-folder-text">Удалить папку</span>
         </button>
     </div>
 </div>
 <div class="mailbox-container">
+    <div class="mailbox-control-panel">
+        <input type="checkbox" id="selectAllButton">
+    </div>
     <div class="mailbox">
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Я гей</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
         <div class="mailbox-element">
             <a href="index.html" class="mailbox-element-ref">
                 <div class="mailbox-inside-element">

@@ -1,5 +1,3 @@
-
-
 function showEmailSendWindow(){
     Swal.fire({
         width:700,
@@ -24,6 +22,49 @@ function showEmailSendWindow(){
             '}' +
             '' +
             '</style>',
-        confirmButtonText: 'Send',
-    })
+        confirmButtonText: 'Send'
+    });
+}
+
+function createNewFolder(){
+    let folderName = $(".sidebar-folders-navigation-new-folder-name").val();
+    let allFoldersNames = [];
+    $(".sidebar-folders-navigation-list li").each(function(index){
+        allFoldersNames[index] = $(this).text();
+    });
+    if(!allFoldersNames.includes(folderName) && folderName !== ""){
+        $(".sidebar-folders-navigation-list").append("<li>"+folderName+"</li>");
+        $(".sidebar-folders-navigation-new-folder-name").val('');
+    }
+    else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Введено невалидное название папки.',
+            width: 630
+        })
+    }
+}
+
+function deleteFolder(){
+    let constFolders = ['Входящие', 'Отправленные', 'Черновики', 'Корзина'];
+    let folderName = $(".sidebar-folders-navigation-new-folder-name").val();
+    let allFoldersNames = [];
+    $(".sidebar-folders-navigation-list li").each(function(index){
+        allFoldersNames[index] = $(this).text();
+    }); //Если value li в foldersList равен folderName, то удалить этот li
+    let foldersList = document.getElementById('foldersList');
+    if(!constFolders.includes(folderName)) {
+        foldersList.innerHTML = foldersList.innerHTML.replace('<li>' + folderName + '</li>', "");
+        $(".sidebar-folders-navigation-new-folder-name").val('');
+    }
+    else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Невозможно удалить эту папку',
+            width: 630
+        })
+    }
+}
+function addNewLetter(){
+
 }
