@@ -41,16 +41,18 @@ async function showEmailSendWindow() {
         if(letter.length>60){
             topic = topic.substring(0, 57) + '...';
         }
-        $(".mailbox").append('<div class="mailbox-element" onclick="openLetter(this)">\n' +
+        let date = new Date();
+        let finalDate = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        $(".mailbox").append('<div class="mailbox-element" >\n' +
             '            <button class="mailbox-element-button">\n' +
-            '                <div class="mailbox-inside-element">\n' +
-            '                    <input type="checkbox" class="mailbox-inside-element-checkbox">\n' +
-            '                    <hr class="vr">\n' +
+            '              <input type="checkbox" class="mailbox-inside-element-checkbox">\n' +
+            '               <hr class="vr">\n' +
+            '                <div class="mailbox-inside-element" onclick="openLetter(this)">\n' +
             '                    <span class="mailbox-inside-element-from">from: myself</span>\n' +
             '                    <hr class="vr">\n' +
             '                    <span class="mailbox-inside-element-topic">' + topic + '</span>\n' +
             '                    <hr class="vr">\n' +
-            '                    <span class="mailbox-inside-element-time">01.12.2020</span>\n' +
+            '                    <span class="mailbox-inside-element-time">' + finalDate + '</span>\n' +
             '                </div>\n' +
             '            </button>\n' +
             '        </div>');
@@ -58,26 +60,40 @@ async function showEmailSendWindow() {
 }
 
 function openLetter(element) {
-    let selectedElements = element.parentNode.querySelectorAll(".mailbox-element");
-    for (let i = 0; i < selectedElements.length; i++) {
-        if (selectedElements[i] == element) {
+    let selectedLetters = document.getElementById('mailbox').children;
+    for (let i = 0; i < selectedLetters.length; i++) {
+        if(selectedLetters[i] === element.parentElement.parentElement){
             Swal.fire({
                 text: letterMassive[i],
                 width: 800,
                 height: 600
-            })
+            });
+            break;
         }
     }
 }
-let temp = 0;
+
+let isNotSelected = true;
 function selectAllLetters() {
-    if($("#selectAllButton").prop('checked', true)&&temp%0){
+    if($("#selectAllButton").prop('checked', true) && isNotSelected === true){
         $(".mailbox-inside-element-checkbox").prop('checked', true);
-        temp++;
+        isNotSelected=false;
     }
-
+    else{
+        $(".mailbox-inside-element-checkbox").prop('checked', false);
+        $("#selectAllButton").prop('checked', false);
+        isNotSelected=true;
+    }
 }
-
+function deleteSelectedLetters() {
+    //Пробежаться по всем элементам мейлбокса этим: Если чекбокс true - parent удаляется
+    $('.mailbox-element').each(function (element, index) {
+        if($(this).children()[0].children[0].checked === true){
+            $(this).remove();
+        $('#selectAllButton').checked = false;
+        }
+    })
+}
 //========================================= FolderFunctions =========================================
 
 function createFolder(){
@@ -98,7 +114,6 @@ function createFolder(){
         })
     }
 }
-
 function deleteFolder(){
     let constFolders = ['входящие', 'отправленные', 'черновики', 'корзина', 'Входящие', 'Отправленные', 'Черновики', 'Корзина',];
     let folderName = $(".sidebar-folders-navigation-new-folder-name").val();
