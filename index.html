@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="sidebar-folders-navigation-new-folder-container">
-        <button class="sidebar-folders-navigation-new-folder" onclick="createNewFolder();">
+        <button class="sidebar-folders-navigation-new-folder" onclick="createFolder();">
                 <span class="sidebar-folders-navigation-new-folder-text">Создать папку</span>
         </button>
     </div>
@@ -68,23 +68,9 @@
 </div>
 <div class="mailbox-container">
     <div class="mailbox-control-panel">
-        <input type="checkbox" id="selectAllButton">
+        <input type="checkbox" id="selectAllButton" onclick="selectAllLetters()">
     </div>
     <div class="mailbox">
-        <div class="mailbox-element">
-            <a href="index.html" class="mailbox-element-ref">
-                <div class="mailbox-inside-element">
-                    <input type="checkbox" class="mailbox-inside-element-checkbox">
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-from">from: writer</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-topic">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <hr class="vr">
-                    <span class="mailbox-inside-element-time">01.12.2020</span>
-                </div>
-            </a>
-        </div>
-
     </div>
 </div>
 </div>

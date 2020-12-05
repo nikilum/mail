@@ -119,7 +119,7 @@ body {
 }
 .mailbox {
     width: 100%;
-    height: 90%;
+    height: 100%;
 }
 #selectAllButton {
     margin-left: 7px;
@@ -127,17 +127,21 @@ body {
     margin-bottom: 8px;
 }
 .mailbox-control-panel {
-    border-radius: 5px;
     border: 10px solid #1c1c1c;
 }
 .mailbox-inside-element {
-    width: 99.8%;
+    width: 100%;
     height: 40px;
-    border: 1px solid white;
-    color: #f4f4f4;
 }
-.mailbox-inside-element:hover {
+.mailbox-element-button {
+    background: #373737;
+    width: 100%;
+}
+.mailbox-element-button:hover {
     background: #3c3c3c;
+}
+.mailbox-element-button:focus {
+    outline: none;
 }
 .vr {
     float: left;

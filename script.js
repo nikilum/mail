@@ -1,12 +1,18 @@
-function showEmailSendWindow(){
-    Swal.fire({
-        width:700,
+
+//========================================= LetterFunctions =========================================
+
+let letterMassive = [];
+async function showEmailSendWindow() {
+    const {value: letter} = await Swal.fire({
+        showCancelButton: true,
+        customClass: {
+            input: 'mail-input'
+        },
         html:
             '<button class="popup-button">B</button>' +
             '<button class="popup-button">I</button>' +
             '<button class="popup-button">U</button>' +
             '<br>' +
-            '<textarea style="width: 600px; height: 400px; resize: none"></textarea>' +
             '<style>' +
             '.popup-button {' +
             'margin:5px; ' +
@@ -20,13 +26,61 @@ function showEmailSendWindow(){
             '.popup-button:focus {' +
             'outline: none;' +
             '}' +
-            '' +
+            '.mail-input {' +
+            'height: 50vh;' +
+            'width: 50vw;' +
+            'resize: none;' +
+            '}' +
             '</style>',
-        confirmButtonText: 'Send'
+        input: 'textarea',
+        confirmButtonText: 'Send',
     });
+    letterMassive.push(letter);
+    if(letter!==undefined) {
+        let topic = letter;
+        if(letter.length>60){
+            topic = topic.substring(0, 57) + '...';
+        }
+        $(".mailbox").append('<div class="mailbox-element" onclick="openLetter(this)">\n' +
+            '            <button class="mailbox-element-button">\n' +
+            '                <div class="mailbox-inside-element">\n' +
+            '                    <input type="checkbox" class="mailbox-inside-element-checkbox">\n' +
+            '                    <hr class="vr">\n' +
+            '                    <span class="mailbox-inside-element-from">from: myself</span>\n' +
+            '                    <hr class="vr">\n' +
+            '                    <span class="mailbox-inside-element-topic">' + topic + '</span>\n' +
+            '                    <hr class="vr">\n' +
+            '                    <span class="mailbox-inside-element-time">01.12.2020</span>\n' +
+            '                </div>\n' +
+            '            </button>\n' +
+            '        </div>');
+    }
 }
 
-function createNewFolder(){
+function openLetter(element) {
+    let selectedElements = element.parentNode.querySelectorAll(".mailbox-element");
+    for (let i = 0; i < selectedElements.length; i++) {
+        if (selectedElements[i] == element) {
+            Swal.fire({
+                text: letterMassive[i],
+                width: 800,
+                height: 600
+            })
+        }
+    }
+}
+let temp = 0;
+function selectAllLetters() {
+    if($("#selectAllButton").prop('checked', true)&&temp%0){
+        $(".mailbox-inside-element-checkbox").prop('checked', true);
+        temp++;
+    }
+
+}
+
+//========================================= FolderFunctions =========================================
+
+function createFolder(){
     let folderName = $(".sidebar-folders-navigation-new-folder-name").val();
     let allFoldersNames = [];
     $(".sidebar-folders-navigation-list li").each(function(index){
@@ -46,7 +100,7 @@ function createNewFolder(){
 }
 
 function deleteFolder(){
-    let constFolders = ['Входящие', 'Отправленные', 'Черновики', 'Корзина'];
+    let constFolders = ['входящие', 'отправленные', 'черновики', 'корзина', 'Входящие', 'Отправленные', 'Черновики', 'Корзина',];
     let folderName = $(".sidebar-folders-navigation-new-folder-name").val();
     let allFoldersNames = [];
     $(".sidebar-folders-navigation-list li").each(function(index){
@@ -64,7 +118,4 @@ function deleteFolder(){
             width: 630
         })
     }
-}
-function addNewLetter(){
-
 }
